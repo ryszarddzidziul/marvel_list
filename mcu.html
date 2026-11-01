@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Marvel Checklist</title>
+    <style>
+
+        @font-face {
+            font-family: 'MarvelFont'; 
+            src: url('inne/HeroesAssembleBoldExpandtalic-qEn1.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --marvel-red: #dc1010;
+            --bg-dark: #121212;
+            --bg-card: #000000;
+            --bg-item: #a207c9;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), 
+                url('inne/background.jpg'); 
+        
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+            background-repeat: no-repeat;
+            color: var(--text-light);
+            font-family: 'MarvelFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            cursor: url('inne/cursorspiderman2.png'), auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--marvel-red);
+            padding-bottom: 10px;
+        }
+
+        /* Sekcje rozwijane */
+        details {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            background: #000000;
+            border-left: 5px solid var(--marvel-red);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--marvel-red);
+            font-size: 1.2em;
+        }
+
+        details[open] > summary::after {
+            content: '-';
+        }
+
+        .sub-section {
+            margin: 10px 0 10px 20px;
+            border-left: 2px solid #dc1010;
+        }
+        
+        .sub-summary {
+            background: transparent;
+            border-left: none;
+            font-size: 1em;
+            color: #f9f6f6;
+        }
+
+        h4 {
+            margin: 15px 0 5px 20px;
+            color: var(--marvel-red);
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .item-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+            padding: 0;
+            margin: 0 20px 25px 20px;
+            list-style: none;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-item);
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .item:hover {
+            background: #e20bbf ;
+            transform: translateY(-4px); 
+        }
+
+        .item img {
+            order: 1; 
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+            background: #444444; 
+            margin: 0 0 12px 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        label {
+            order: 2;
+            cursor: pointer;
+            font-size: 0.9em;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            flex-grow: 1; 
+        }
+
+        input[type="checkbox"] {
+            order: 3; 
+            margin: 0;
+            width: 22px;
+            height: 22px;
+            accent-color: var(--marvel-red);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: #000000;
+            border: 2px solid #f9f5f5;
+            border-radius: 4px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #000000;
+            border-color: #ffffff;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '⨂'; 
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .item:has(input[type="checkbox"]:checked) {
+            opacity: 0.5;
+        }
+
+        .item,
+        .item *,
+        input[type="checkbox"], 
+        summary {
+            cursor: url('inne/cursorspiderman3.png') 24 0, pointer !important;
+        }
+
+        input[type="checkbox"]:checked ~ label {
+            text-decoration: line-through;
+            color: #777;
+        }
+
+        .item {
+            position: relative; 
+        }
+
+        .item label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Complete Marvel Checklist</h1>
+
+        <!-- 1. MCU -->
+        <details>
+            <summary>Marvel Cinematic Universe (Movies, Series, Specials)</summary>
+            
+            <!-- MCU: Faza 1 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 1</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m1">
+                        <img src="posters/ironman.jpg" alt="Iron Man">
+                        <label for="mcu-f1-m1">Iron Man (2008)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m2">
+                        <img src="posters/theincrediblehulk.jpg" alt="The Incredible Hulk">
+                        <label for="mcu-f1-m2">The Incredible Hulk (2008)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m3">
+                        <img src="posters/ironman2.jpg" alt="Iron Man 2">
+                        <label for="mcu-f1-m3">Iron Man 2 (2010)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m4">
+                        <img src="posters/thor.jpg" alt="Thor">
+                        <label for="mcu-f1-m4">Thor (2011)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m5">
+                        <img src="posters/captainamericathefirstavenger.jpg" alt="Captain America: The First Avenger">
+                        <label for="mcu-f1-m5">Captain America: The First Avenger (2011)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f1-m6">
+                        <img src="posters/avnegers.jpg" alt="The Avengers">
+                        <label for="mcu-f1-m6">The Avengers (2012)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 2 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 2</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m1">
+                        <img src="posters/ironman3.jpg" alt="Iron Man 3">
+                        <label for="mcu-f2-m1">Iron Man 3 (2013)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m2">
+                        <img src="posters/thorthedarkworld.jpg" alt="Thor: The Dark World">
+                        <label for="mcu-f2-m2">Thor: The Dark World (2013)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m3">
+                        <img src="posters/captainamericathewintersoldier.jpg" alt="Captain America: The Winter Soldier">
+                        <label for="mcu-f2-m3">Captain America: The Winter Soldier (2014)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m4">
+                        <img src="posters/guardiansofthegalaxy.jpg" alt="Guardians of the Galaxy">
+                        <label for="mcu-f2-m4">Guardians of the Galaxy (2014)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m5">
+                        <img src="posters/avengersageofultron.jpg" alt="Avengers: Age of Ultron">
+                        <label for="mcu-f2-m5">Avengers: Age of Ultron (2015)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f2-m6">
+                        <img src="posters/antman.jpg" alt="Ant-Man">
+                        <label for="mcu-f2-m6">Ant-Man (2015)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 3 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 3</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m1">
+                        <img src="posters/captainamericacivilwar.jpg" alt="Captain America: Civil War">
+                        <label for="mcu-f3-m1">Captain America: Civil War (2016)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m2">
+                        <img src="posters/doctorstrange.jpg" alt="Doctor Strange">
+                        <label for="mcu-f3-m2">Doctor Strange (2016)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m3">
+                        <img src="posters/guardiansofthegalaxyvol2.jpg" alt="Guardians of the Galaxy Vol. 2">
+                        <label for="mcu-f3-m3">Guardians of the Galaxy Vol. 2 (2017)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m4">
+                        <img src="posters/spidermanhomecoming.jpg" alt="Spider-Man: Homecoming">
+                        <label for="mcu-f3-m4">Spider-Man: Homecoming (2017)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m5">
+                        <img src="posters/thorragnarok.jpg" alt="Thor: Ragnarok">
+                        <label for="mcu-f3-m5">Thor: Ragnarok (2017)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m6">
+                        <img src="posters/blackpanther.jpg" alt="Black Panther">
+                        <label for="mcu-f3-m6">Black Panther (2018)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m7">
+                        <img src="posters/avengersinfinitywar.jpg" alt="Avengers: Infinity War">
+                        <label for="mcu-f3-m7">Avengers: Infinity War (2018)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m8">
+                        <img src="posters/antmanandthewasp.jpg" alt="Ant-Man and the Wasp">
+                        <label for="mcu-f3-m8">Ant-Man and the Wasp (2018)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m9">
+                        <img src="posters/captainmarvel.jpg" alt="Captain Marvel">
+                        <label for="mcu-f3-m9">Captain Marvel (2019)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m10">
+                        <img src="posters/avengersendgame.jpg" alt="Avengers: Endgame">
+                        <label for="mcu-f3-m10">Avengers: Endgame (2019)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f3-m11">
+                        <img src="posters/spidermanfarfromhome.jpg" alt="Spider-Man: Far From Home">
+                        <label for="mcu-f3-m11">Spider-Man: Far From Home (2019)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 4 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 4</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m1">
+                        <img src="posters/blackwidow.jpg" alt="Black Widow">
+                        <label for="mcu-f4-m1">Black Widow (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m2">
+                        <img src="posters/shangchi.jpg" alt="Shang-Chi and the Legend of the Ten Rings">
+                        <label for="mcu-f4-m2">Shang-Chi (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m3">
+                        <img src="posters/eternals.jpg" alt="Eternals">
+                        <label for="mcu-f4-m3">Eternals (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m4">
+                        <img src="posters/spidermannowayhome.jpg" alt="Spider-Man: No Way Home">
+                        <label for="mcu-f4-m4">Spider-Man: No Way Home (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m5">
+                        <img src="posters/doctorstrangeinthemultiverseofmadness.jpg" alt="Doctor Strange in the Multiverse of Madness">
+                        <label for="mcu-f4-m5">Doctor Strange 2 (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m6">
+                        <img src="posters/thorloveandthunder.jpg" alt="Thor: Love and Thunder">
+                        <label for="mcu-f4-m6">Thor: Love and Thunder (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-m7">
+                        <img src="posters/blackpantherwakandaforever.jpg" alt="Black Panther: Wakanda Forever">
+                        <label for="mcu-f4-m7">Black Panther: Wakanda Forever (2022)</label>
+                    </li>
+                </ul>
+
+                <h4>Series</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s1">
+                        <img src="posters/wandavision.jpg" alt="WandaVision">
+                        <label for="mcu-f4-s1">WandaVision (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s2">
+                        <img src="posters/thefalconandthewintersoldier.jpg" alt="The Falcon and the Winter Soldier">
+                        <label for="mcu-f4-s2">The Falcon and the Winter Soldier (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s3">
+                        <img src="posters/loki-s1.jpg" alt="Loki - Season 1">
+                        <label for="mcu-f4-s3">Loki - Season 1 (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s4">
+                        <img src="posters/whatif-s1.jpg" alt="What If...? - Season 1">
+                        <label for="mcu-f4-s4">What If...? - Season 1 (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s5">
+                        <img src="posters/hawkeye.jpg" alt="Hawkeye">
+                        <label for="mcu-f4-s5">Hawkeye (2021)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s6">
+                        <img src="posters/moonknight.jpg" alt="Moon Knight">
+                        <label for="mcu-f4-s6">Moon Knight (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s7">
+                        <img src="posters/msmarvel.jpg" alt="Ms. Marvel">
+                        <label for="mcu-f4-s7">Ms. Marvel (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s8">
+                        <img src="posters/groot-s1.jpg" alt="I Am Groot - Season 1">
+                        <label for="mcu-f4-s8">I Am Groot - Season 1 (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-s9">
+                        <img src="posters/shehulk.jpg" alt="She-Hulk: Attorney at Law">
+                        <label for="mcu-f4-s9">She-Hulk: Attorney at Law (2022)</label>
+                    </li>
+                </ul>
+
+                <h4>Specials</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-sp1">
+                        <img src="posters/werewolfbynight.jpg" alt="Werewolf by Night">
+                        <label for="mcu-f4-sp1">Werewolf by Night (2022)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f4-sp2">
+                        <img src="posters/guardiansholiday.jpg" alt="The Guardians of the Galaxy Holiday Special">
+                        <label for="mcu-f4-sp2">Guardians of the Galaxy Holiday Special (2022)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 5 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 5</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m1">
+                        <img src="posters/quantumania.jpg" alt="Ant-Man and the Wasp: Quantumania">
+                        <label for="mcu-f5-m1">Ant-Man and the Wasp: Quantumania (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m2">
+                        <img src="posters/gotg3.jpg" alt="Guardians of the Galaxy Vol. 3">
+                        <label for="mcu-f5-m2">Guardians of the Galaxy Vol. 3 (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m3">
+                        <img src="posters/themarvels.jpg" alt="The Marvels">
+                        <label for="mcu-f5-m3">The Marvels (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m4">
+                        <img src="posters/deadpoolandwolverine.jpg" alt="Deadpool & Wolverine">
+                        <label for="mcu-f5-m4">Deadpool & Wolverine (2024)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m5">
+                        <img src="posters/captainamericabravenewworld.jpg" alt="Captain America: Brave New World">
+                        <label for="mcu-f5-m5">Captain America: Brave New World (2025)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-m6">
+                        <img src="posters/thunderbolts.jpg" alt="Thunderbolts*">
+                        <label for="mcu-f5-m6">Thunderbolts* (2025)</label>
+                    </li>
+                </ul>
+
+                <h4>Series</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s1">
+                        <img src="posters/secretinvasion.jpg" alt="Secret Invasion">
+                        <label for="mcu-f5-s1">Secret Invasion (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s2">
+                        <img src="posters/groot-s2.jpg" alt="I Am Groot - Season 2">
+                        <label for="mcu-f5-s2">I Am Groot - Season 2 (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s3">
+                        <img src="posters/loki-s2.jpg" alt="Loki - Season 2">
+                        <label for="mcu-f5-s3">Loki - Season 2 (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s4">
+                        <img src="posters/whatif-s2.jpg" alt="What If...? - Season 2">
+                        <label for="mcu-f5-s4">What If...? - Season 2 (2023)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s5">
+                        <img src="posters/echo.jpg" alt="Echo">
+                        <label for="mcu-f5-s5">Echo (2024)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s6">
+                        <img src="posters/agathaallalong.jpg" alt="Agatha All Along">
+                        <label for="mcu-f5-s6">Agatha All Along (2024)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s7">
+                        <img src="posters/daredevilbornagain.jpg" alt="Daredevil: Born Again">
+                        <label for="mcu-f5-s7">Daredevil: Born Again (2025)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f5-s8">
+                        <img src="posters/ironheart.jpg" alt="Ironheart">
+                        <label for="mcu-f5-s8">Ironheart (2025)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 6 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 6</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-m1">
+                        <img src="posters/fantasticfourfirststeps.jpg" alt="The Fantastic Four: First Steps">
+                        <label for="mcu-f6-m1">The Fantastic Four: First Steps (2025)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-m2">
+                        <img src="posters/spidermanbrandnewday.jpg" alt="Spider-Man: Brand New Day">
+                        <label for="mcu-f6-m2">Spider-Man: Brand New Day (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-m3">
+                        <img src="posters/avengersdoomsday.jpg" alt="Avengers: Doomsday">
+                        <label for="mcu-f6-m3">Avengers: Doomsday (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-m4">
+                        <img src="posters/avengerssecretwars.jpg" alt="Avengers: Secret Wars">
+                        <label for="mcu-f6-m4">Avengers: Secret Wars (2027)</label>
+                    </li>
+                </ul>
+
+                <h4>Series</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s1">
+                        <img src="posters/eyesofwakanda.jpg" alt="Eyes of Wakanda">
+                        <label for="mcu-f6-s1">Eyes of Wakanda (2025)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s2">
+                        <img src="posters/marvelzombies.jpg" alt="Marvel Zombies">
+                        <label for="mcu-f6-s2">Marvel Zombies (2025)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s3">
+                        <img src="posters/wonderman.jpg" alt="Wonder Man">
+                        <label for="mcu-f6-s3">Wonder Man (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s4">
+                        <img src="posters/daredevilbornagain-s2.jpg" alt="Daredevil: Born Again">
+                        <label for="mcu-f6-s4">Daredevil: Born Again - Season 2 (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s5">
+                        <img src="posters/visionquest.jpg" alt="VisionQuest">
+                        <label for="mcu-f6-s5">VisionQuest (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-s6">
+                        <img src="posters/daredevilbornagain-s3.jpg" alt="Daredevil: Born Again">
+                        <label for="mcu-f6-s6">Daredevil: Born Again - Season 3 (2027)</label>
+                    </li>
+                </ul>
+
+                <h4>Specials</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-sp1">
+                        <img src="posters/punisheronelastkill.jpg" alt="The Punisher: One Last Kill">
+                        <label for="mcu-f6-sp1">The Punisher: One Last Kill (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-sp2">
+                        <img src="posters/avengersendgameencore.jpg" alt="Avengers: Endgame - Encore">
+                        <label for="mcu-f6-sp2">Avengers: Endgame - Encore (2026)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f6-sp3">
+                        <img src="posters/marvelzombieswintersoldier.jpg" alt="Marvel Zombies: The Winter Soldier">
+                        <label for="mcu-f6-sp3">Marvel Zombies: The Winter Soldier (2027)</label>
+                    </li>
+                </ul>
+            </details>
+
+            <!-- MCU: Faza 7 -->
+            <details class="sub-section">
+                <summary class="sub-summary">Phase 7</summary>
+                
+                <h4>Movies</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-m1">
+                        <img src="posters/untitledxmen.jpg" alt="Untitled X-Men film">
+                        <label for="mcu-f7-m1">Untitled X-Men film (2028)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-m2">
+                        <img src="posters/ghostridermcu.jpg" alt="Ghost Rider">
+                        <label for="mcu-f7-m2">Ghost Rider (2028)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-m3">
+                        <img src="posters/blackpanther3.jpg" alt="Black Panther III">
+                        <label for="mcu-f7-m3">Black Panther III (2028)</label>
+                    </li>
+                </ul>
+
+                <h4>Series</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-s1">
+                        <img src="posters/zodiac.jpg" alt="Zodiac">
+                        <label for="mcu-f7-s1">Zodiac (2028)</label>
+                    </li>
+                </ul>
+
+                <h4>Specials</h4>
+                <ul class="item-list">
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-sp1">
+                        <img src="posters/marvelzombiesfistofkhonshu.jpg" alt="Marvel Zombies: The Fist of Khonshu">
+                        <label for="mcu-f7-sp1">Marvel Zombies: The Fist of Khonshu (2028)</label>
+                    </li>
+                    <li class="item">
+                        <input type="checkbox" id="mcu-f7-sp2">
+                        <img src="posters/marvelzombieslastguardian.jpg" alt="Marvel Zombies: The Last Guardian">
+                        <label for="mcu-f7-sp2">Marvel Zombies: The Last Guardian (2029)</label>
+                    </li>
+                </ul>
+            </details>
+           
+        </details>
+
+        <!-- 2. SHORT FILMS -->
+        <details>
+            <summary>Short Films</summary>
+            
+            <h4>OG One-Shots</h4>
+            <ul class="item-list">
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-1">
+                    <img src="posters/theconsultant.jpg" alt="The Consultant">
+                    <label for="mcu-short-1">The Consultant (2011)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-2">
+                    <img src="posters/funnythingthor.jpg" alt="A Funny Thing Happened on the Way to Thor's Hammer">
+                    <label for="mcu-short-2">A Funny Thing Happened on the Way to Thor's Hammer (2011)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-3">
+                    <img src="posters/item47.jpg" alt="Item 47">
+                    <label for="mcu-short-3">Item 47 (2012)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-4">
+                    <img src="posters/agentcartershort.jpg" alt="Agent Carter">
+                    <label for="mcu-short-4">Agent Carter (2013)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-5">
+                    <img src="posters/allhailtheking.jpg" alt="All Hail the King">
+                    <label for="mcu-short-5">All Hail the King (2014)</label>
+                </li>
+            </ul>
+
+            <h4>Team Thor series</h4>
+            <ul class="item-list">
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-6">
+                    <img src="posters/teamthor.jpg" alt="Team Thor">
+                    <label for="mcu-short-6">Team Thor (2016)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-7">
+                    <img src="posters/teamthor2.jpg" alt="Team Thor: Part 2">
+                    <label for="mcu-short-7">Team Thor: Part 2 (2017)</label>
+                </li>
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-8">
+                    <img src="posters/teamdarryl.jpg" alt="Team Darryl">
+                    <label for="mcu-short-8">Team Darryl (2018)</label>
+                </li>
+            </ul>
+
+            <h4>Others</h4>
+            <ul class="item-list">
+                <li class="item">
+                    <input type="checkbox" id="mcu-short-9">
+                    <img src="posters/peterstodo.jpg" alt="Peter's To-Do List">
+                    <label for="mcu-short-9">Peter's To-Do List (2019)</label>
+                </li>
+            </ul>
+        </details>
+
+        <!-- 3. OTHER MCU SERIES -->
+        <details>
+    <summary>Other MCU Series</summary>
+    
+    <!-- Marvel Heroes -->
+    <details class="sub-section">
+        <summary class="sub-summary">Marvel Heroes</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-1">
+                <img src="posters/aos-s1.jpg" alt="Agents of S.H.I.E.L.D. - Season 1">
+                <label for="othertv-mh-1">Agents of S.H.I.E.L.D. - Season 1 (2013-2014)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-2">
+                <img src="posters/aos-s2.jpg" alt="Agents of S.H.I.E.L.D. - Season 2">
+                <label for="othertv-mh-2">Agents of S.H.I.E.L.D. - Season 2 (2014-2015)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-3">
+                <img src="posters/agentcarter-s1.jpg" alt="Agent Carter - Season 1">
+                <label for="othertv-mh-3">Agent Carter - Season 1 (2015)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-4">
+                <img src="posters/aos-s3.jpg" alt="Agents of S.H.I.E.L.D. - Season 3">
+                <label for="othertv-mh-4">Agents of S.H.I.E.L.D. - Season 3 (2015-2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-5">
+                <img src="posters/agentcarter-s2.jpg" alt="Agent Carter - Season 2">
+                <label for="othertv-mh-5">Agent Carter - Season 2 (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-6">
+                <img src="posters/aos-s4.jpg" alt="Agents of S.H.I.E.L.D. - Season 4">
+                <label for="othertv-mh-6">Agents of S.H.I.E.L.D. - Season 4 (2016-2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-7">
+                <img src="posters/inhumans.jpg" alt="Inhumans">
+                <label for="othertv-mh-7">Inhumans (2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-8">
+                <img src="posters/aos-s5.jpg" alt="Agents of S.H.I.E.L.D. - Season 5">
+                <label for="othertv-mh-8">Agents of S.H.I.E.L.D. - Season 5 (2017-2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-9">
+                <img src="posters/aos-s6.jpg" alt="Agents of S.H.I.E.L.D. - Season 6">
+                <label for="othertv-mh-9">Agents of S.H.I.E.L.D. - Season 6 (2019)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-mh-10">
+                <img src="posters/aos-s7.jpg" alt="Agents of S.H.I.E.L.D. - Season 7">
+                <label for="othertv-mh-10">Agents of S.H.I.E.L.D. - Season 7 (2020)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- The Defenders Saga -->
+    <details class="sub-section">
+        <summary class="sub-summary">The Defenders Saga</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="othertv-def-1">
+                <img src="posters/daredevil-s1.jpg" alt="Daredevil - Season 1">
+                <label for="othertv-def-1">Daredevil - Season 1 (2015)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-2">
+                <img src="posters/jessicajones-s1.jpg" alt="Jessica Jones - Season 1">
+                <label for="othertv-def-2">Jessica Jones - Season 1 (2015)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-3">
+                <img src="posters/daredevil-s2.jpg" alt="Daredevil - Season 2">
+                <label for="othertv-def-3">Daredevil - Season 2 (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-4">
+                <img src="posters/lukecage-s1.jpg" alt="Luke Cage - Season 1">
+                <label for="othertv-def-4">Luke Cage - Season 1 (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-5">
+                <img src="posters/ironfist-s1.jpg" alt="Iron Fist - Season 1">
+                <label for="othertv-def-5">Iron Fist - Season 1 (2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-6">
+                <img src="posters/thedefenders.jpg" alt="The Defenders">
+                <label for="othertv-def-6">The Defenders (2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-7">
+                <img src="posters/thepunisher-s1.jpg" alt="The Punisher - Season 1">
+                <label for="othertv-def-7">The Punisher - Season 1 (2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-8">
+                <img src="posters/jessicajones-s2.jpg" alt="Jessica Jones - Season 2">
+                <label for="othertv-def-8">Jessica Jones - Season 2 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-9">
+                <img src="posters/lukecage-s2.jpg" alt="Luke Cage - Season 2">
+                <label for="othertv-def-9">Luke Cage - Season 2 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-10">
+                <img src="posters/ironfist-s2.jpg" alt="Iron Fist - Season 2">
+                <label for="othertv-def-10">Iron Fist - Season 2 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-11">
+                <img src="posters/daredevil-s3.jpg" alt="Daredevil - Season 3">
+                <label for="othertv-def-11">Daredevil - Season 3 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-12">
+                <img src="posters/thepunisher-s2.jpg" alt="The Punisher - Season 2">
+                <label for="othertv-def-12">The Punisher - Season 2 (2019)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-def-13">
+                <img src="posters/jessicajones-s3.jpg" alt="Jessica Jones - Season 3">
+                <label for="othertv-def-13">Jessica Jones - Season 3 (2019)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Young Adult -->
+    <details class="sub-section">
+        <summary class="sub-summary">Young Adult</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="othertv-ya-1">
+                <img src="posters/runaways-s1.jpg" alt="Runaways - Season 1">
+                <label for="othertv-ya-1">Runaways - Season 1 (2017-2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-ya-2">
+                <img src="posters/cloakanddagger-s1.jpg" alt="Cloak & Dagger - Season 1">
+                <label for="othertv-ya-2">Cloak & Dagger - Season 1 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-ya-3">
+                <img src="posters/runaways-s2.jpg" alt="Runaways - Season 2">
+                <label for="othertv-ya-3">Runaways - Season 2 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-ya-4">
+                <img src="posters/cloakanddagger-s2.jpg" alt="Cloak & Dagger - Season 2">
+                <label for="othertv-ya-4">Cloak & Dagger - Season 2 (2019)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-ya-5">
+                <img src="posters/runaways-s3.jpg" alt="Runaways - Season 3">
+                <label for="othertv-ya-5">Runaways - Season 3 (2019)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Adventure into Fear -->
+    <details class="sub-section">
+        <summary class="sub-summary">Adventure into Fear</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="othertv-adv-1">
+                <img src="posters/helstrom.jpg" alt="Helstrom">
+                <label for="othertv-adv-1">Helstrom (2020)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Web Series -->
+    <details class="sub-section">
+        <summary class="sub-summary">Web Series</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="othertv-web-1">
+                <img src="posters/aosdeclassified.jpg" alt="Agents of S.H.I.E.L.D.: Declassified">
+                <label for="othertv-web-1">Agents of S.H.I.E.L.D.: Declassified (2013-2014)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-2">
+                <img src="posters/aosdoubleagent.jpg" alt="Agents of S.H.I.E.L.D.: Double Agent">
+                <label for="othertv-web-2">Agents of S.H.I.E.L.D.: Double Agent (2015)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-3">
+                <img src="posters/whihnewsfront.jpg" alt="WHiH Newsfront">
+                <label for="othertv-web-3">WHiH Newsfront (2015-2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-4">
+                <img src="posters/aosacademy.jpg" alt="Agents of S.H.I.E.L.D.: Academy">
+                <label for="othertv-web-4">Agents of S.H.I.E.L.D.: Academy (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-5">
+                <img src="posters/aosslingshot.jpg" alt="Agents of S.H.I.E.L.D.: Slingshot">
+                <label for="othertv-web-5">Agents of S.H.I.E.L.D.: Slingshot (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-6">
+                <img src="posters/forgingmarvelsaos.jpg" alt="Forging Marvel's S.H.I.E.L.D.">
+                <label for="othertv-web-6">Forging Marvel's S.H.I.E.L.D. (2016-2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-7">
+                <img src="posters/thedailybugle.jpg" alt="The Daily Bugle">
+                <label for="othertv-web-7">The Daily Bugle (2019-2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-8">
+                <img src="posters/meettheeternals.jpg" alt="Meet the Eternals">
+                <label for="othertv-web-8">Meet the Eternals (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-9">
+                <img src="posters/untoldtalesofeternals.jpg" alt="The Untold Tales of the Eternals">
+                <label for="othertv-web-9">The Untold Tales of the Eternals (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="othertv-web-10">
+                <img src="posters/meetthefantasticfour.jpg" alt="Meet the Fantastic Four">
+                <label for="othertv-web-10">Meet the Fantastic Four (2025)</label>
+            </li>
+        </ul>
+    </details>
+
+        </details>
+
+        <!-- 4. X-MEN -->
+        <details>
+    <summary>X-Men</summary>
+    
+    <!-- Movies -->
+    <details class="sub-section">
+        <summary class="sub-summary">Movies</summary>
+        
+        <h4>Original Trilogy</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-m-1">
+                <img src="posters/xmen.jpg" alt="X-Men">
+                <label for="xmen-m-1">X-Men (2000)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-2">
+                <img src="posters/x2.jpg" alt="X2">
+                <label for="xmen-m-2">X2 (2003)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-3">
+                <img src="posters/xmenlaststand.jpg" alt="X-Men: The Last Stand">
+                <label for="xmen-m-3">X-Men: The Last Stand (2006)</label>
+            </li>
+        </ul>
+
+        <h4>Prequel Films</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-m-4">
+                <img src="posters/xmenfirstclass.jpg" alt="X-Men: First Class">
+                <label for="xmen-m-4">X-Men: First Class (2011)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-5">
+                <img src="posters/xmendaysoffuturepast.jpg" alt="X-Men: Days of Future Past">
+                <label for="xmen-m-5">X-Men: Days of Future Past (2014)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-6">
+                <img src="posters/xmenapocalypse.jpg" alt="X-Men: Apocalypse">
+                <label for="xmen-m-6">X-Men: Apocalypse (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-7">
+                <img src="posters/darkphoenix.jpg" alt="Dark Phoenix">
+                <label for="xmen-m-7">Dark Phoenix (2019)</label>
+            </li>
+        </ul>
+
+        <h4>Wolverine Trilogy</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-m-8">
+                <img src="posters/xmenoriginswolverine.jpg" alt="X-Men Origins: Wolverine">
+                <label for="xmen-m-8">X-Men Origins: Wolverine (2009)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-9">
+                <img src="posters/thewolverine.jpg" alt="The Wolverine">
+                <label for="xmen-m-9">The Wolverine (2013)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-10">
+                <img src="posters/logan.jpg" alt="Logan">
+                <label for="xmen-m-10">Logan (2017)</label>
+            </li>
+        </ul>
+
+        <h4>Deadpool</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-m-11">
+                <img src="posters/deadpool.jpg" alt="Deadpool">
+                <label for="xmen-m-11">Deadpool (2016)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-m-12">
+                <img src="posters/deadpool2.jpg" alt="Deadpool 2">
+                <label for="xmen-m-12">Deadpool 2 (2018)</label>
+            </li>
+        </ul>
+
+        <h4>Other</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-m-13">
+                <img src="posters/thenewmutants.jpg" alt="The New Mutants">
+                <label for="xmen-m-13">The New Mutants (2020)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Series -->
+    <details class="sub-section">
+        <summary class="sub-summary">Series</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-s-1">
+                <img src="posters/legion-s1.jpg" alt="Legion - Season 1">
+                <label for="xmen-s-1">Legion - Season 1 (2017)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-s-2">
+                <img src="posters/thegifted-s1.jpg" alt="The Gifted - Season 1">
+                <label for="xmen-s-2">The Gifted - Season 1 (2017-2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-s-3">
+                <img src="posters/legion-s2.jpg" alt="Legion - Season 2">
+                <label for="xmen-s-3">Legion - Season 2 (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-s-4">
+                <img src="posters/thegifted-s2.jpg" alt="The Gifted - Season 2">
+                <label for="xmen-s-4">The Gifted - Season 2 (2018-2019)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-s-5">
+                <img src="posters/legion-s3.jpg" alt="Legion - Season 3">
+                <label for="xmen-s-5">Legion - Season 3 (2019)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Animated Series -->
+    <details class="sub-section">
+        <summary class="sub-summary">Animated Series</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-1">
+                <img src="posters/xmentas-s1.jpg" alt="X-Men: The Animated Series - Season 1">
+                <label for="xmen-anim-1">X-Men: The Animated Series - Season 1 (1992-1993)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-2">
+                <img src="posters/xmentas-s2.jpg" alt="X-Men: The Animated Series - Season 2">
+                <label for="xmen-anim-2">X-Men: The Animated Series - Season 2 (1993-1994)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-3">
+                <img src="posters/xmentas-s3.jpg" alt="X-Men: The Animated Series - Season 3">
+                <label for="xmen-anim-3">X-Men: The Animated Series - Season 3 (1994-1995)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-4">
+                <img src="posters/xmentas-s4.jpg" alt="X-Men: The Animated Series - Season 4">
+                <label for="xmen-anim-4">X-Men: The Animated Series - Season 4 (1995-1996)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-5">
+                <img src="posters/xmentas-s5.jpg" alt="X-Men: The Animated Series - Season 5">
+                <label for="xmen-anim-5">X-Men: The Animated Series - Season 5 (1996-1997)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-6">
+                <img src="posters/xmen97-s1.jpg" alt="X-Men '97 - Season 1">
+                <label for="xmen-anim-6">X-Men '97 - Season 1 (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="xmen-anim-7">
+                <img src="posters/xmen97-s2.jpg" alt="X-Men '97 - Season 2">
+                <label for="xmen-anim-7">X-Men '97 - Season 2 (2026)</label>
+            </li>
+        </ul>
+    </details>
+
+        </details>
+
+        <!-- 5. SONY'S SPIDER-MAN UNIVERSE -->
+        <details>
+    <summary>Sony's Spider-Man Universe</summary>
+    
+    <!-- Movies -->
+    <details class="sub-section">
+        <summary class="sub-summary">Movies</summary>
+        
+        <h4>Movies</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="ssu-m-1">
+                <img src="posters/venom.jpg" alt="Venom">
+                <label for="ssu-m-1">Venom (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="ssu-m-2">
+                <img src="posters/venom2.jpg" alt="Venom: Let There Be Carnage">
+                <label for="ssu-m-2">Venom: Let There Be Carnage (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="ssu-m-3">
+                <img src="posters/morbius.jpg" alt="Morbius">
+                <label for="ssu-m-3">Morbius (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="ssu-m-4">
+                <img src="posters/madameweb.jpg" alt="Madame Web">
+                <label for="ssu-m-4">Madame Web (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="ssu-m-5">
+                <img src="posters/venom3.jpg" alt="Venom: The Last Dance">
+                <label for="ssu-m-5">Venom: The Last Dance (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="ssu-m-6">
+                <img src="posters/kraven.jpg" alt="Kraven the Hunter">
+                <label for="ssu-m-6">Kraven the Hunter (2024)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Series -->
+    <details class="sub-section">
+        <summary class="sub-summary">Series</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="ssu-s-1">
+                <img src="posters/spidernoir-s1.jpg" alt="Spider-Noir">
+                <label for="ssu-s-1">Spider-Noir (2026)</label>
+            </li>
+        </ul>
+    </details>
+        </details>
+        
+        <!-- 6. OTHER MEDIA -->
+        <details>
+        <summary>Other Media</summary>
+    
+    <!-- Spider-Man -->
+    <details class="sub-section">
+        <summary class="sub-summary">Spider-Man</summary>
+        
+        <h4>Sam Raimi trilogy</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-sm-1">
+                <img src="posters/spiderman1.jpg" alt="Spider-Man">
+                <label for="other-sm-1">Spider-Man (2002)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-2">
+                <img src="posters/spiderman2.jpg" alt="Spider-Man 2">
+                <label for="other-sm-2">Spider-Man 2 (2004)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-3">
+                <img src="posters/spiderman3.jpg" alt="Spider-Man 3">
+                <label for="other-sm-3">Spider-Man 3 (2007)</label>
+            </li>
+        </ul>
+
+        <h4>Marc Webb films</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-sm-4">
+                <img src="posters/tasm1.jpg" alt="The Amazing Spider-Man">
+                <label for="other-sm-4">The Amazing Spider-Man (2012)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-5">
+                <img src="posters/tasm2.jpg" alt="The Amazing Spider-Man 2">
+                <label for="other-sm-5">The Amazing Spider-Man 2 (2014)</label>
+            </li>
+        </ul>
+
+        <h4>Spider-Verse</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-sm-6">
+                <img src="posters/intothespiderverse.jpg" alt="Spider-Man: Into the Spider-Verse">
+                <label for="other-sm-6">Spider-Man: Into the Spider-Verse (2018)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-7">
+                <img src="posters/spiderham.jpg" alt="Spider-Ham: Caught in a Ham">
+                <label for="other-sm-7">Spider-Ham: Caught in a Ham (2019)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-8">
+                <img src="posters/acrossthespiderverse.jpg" alt="Spider-Man: Across the Spider-Verse">
+                <label for="other-sm-8">Spider-Man: Across the Spider-Verse (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-9">
+                <img src="posters/thespiderwithin.jpg" alt="The Spider Within: A Spider-Verse Story">
+                <label for="other-sm-9">The Spider Within: A Spider-Verse Story (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-10">
+                <img src="posters/beyondthespiderverse.jpg" alt="Spider-Man: Beyond the Spider-Verse">
+                <label for="other-sm-10">Spider-Man: Beyond the Spider-Verse (2027)</label>
+            </li>
+        </ul>
+
+        <h4>Your Friendly Neighborhood Spider-Man</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-sm-11">
+                <img src="posters/yfnspiderman-s1.jpg" alt="Your Friendly Neighborhood Spider-Man - Season 1">
+                <label for="other-sm-11">Your Friendly Neighborhood Spider-Man - Season 1 (2025)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-sm-12">
+                <img src="posters/yfnspiderman-s2.jpg" alt="Your Friendly Neighborhood Spider-Man - Season 2">
+                <label for="other-sm-12">Your Friendly Neighborhood Spider-Man - Season 2 (2027)</label>
+            </li>
+        </ul>
+
+    </details>
+
+    <!-- Fantastic Four -->
+    <details class="sub-section">
+        <summary class="sub-summary">Fantastic Four</summary>
+        
+        <h4>Unreleased</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-ff-1">
+                <img src="posters/fantasticfour1994.jpg" alt="The Fantastic Four">
+                <label for="other-ff-1">The Fantastic Four (1994)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-ff-2">
+                <img src="posters/doomed.jpg" alt="Doomed!: The Untold Story of Roger Corman's The Fantastic Four">
+                <label for="other-ff-2">Doomed!: The Untold Story of Roger Corman's The Fantastic Four (2015)</label>
+            </li>
+        </ul>
+
+        <h4>Tim Story films</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-ff-2">
+                <img src="posters/fantasticfour2005.jpg" alt="Fantastic Four">
+                <label for="other-ff-2">Fantastic Four (2005)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-ff-3">
+                <img src="posters/fantasticfour2007.jpg" alt="Fantastic Four: Rise of the Silver Surfer">
+                <label for="other-ff-3">Fantastic Four: Rise of the Silver Surfer (2007)</label>
+            </li>
+        </ul>
+
+        <h4>Fan4stic</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-ff-4">
+                <img src="posters/fantasticfour2015.jpg" alt="Fantastic Four">
+                <label for="other-ff-4">Fantastic Four (2015)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Blade -->
+    <details class="sub-section">
+        <summary class="sub-summary">Blade</summary>
+        
+        <h4>Movies</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-bl-1">
+                <img src="posters/blade.jpg" alt="Blade">
+                <label for="other-bl-1">Blade (1998)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-bl-2">
+                <img src="posters/blade2.jpg" alt="Blade II">
+                <label for="other-bl-2">Blade II (2002)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-bl-3">
+                <img src="posters/bladetrinity.jpg" alt="Blade: Trinity">
+                <label for="other-bl-3">Blade: Trinity (2004)</label>
+            </li>
+        </ul>
+
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-bl-4">
+                <img src="posters/bladeseries.jpg" alt="Blade: The Series">
+                <label for="other-bl-4">Blade: The Series (2006)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Other -->
+    <details class="sub-section">
+        <summary class="sub-summary">Other</summary>
+        
+        <h4>The Punisher</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-oth-1">
+                <img src="posters/thepunisher2004.jpg" alt="The Punisher">
+                <label for="other-oth-1">The Punisher (2004)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-2">
+                <img src="posters/punisherwarzone.jpg" alt="Punisher: War Zone">
+                <label for="other-oth-2">Punisher: War Zone (2008)</label>
+            </li>
+        </ul>
+
+        <h4>Ghost Rider</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-oth-3">
+                <img src="posters/ghostrider.jpg" alt="Ghost Rider">
+                <label for="other-oth-3">Ghost Rider (2007)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-4">
+                <img src="posters/ghostriderspiritofvengeance.jpg" alt="Ghost Rider: Spirit of Vengeance">
+                <label for="other-oth-4">Ghost Rider: Spirit of Vengeance (2012)</label>
+            </li>
+        </ul>
+
+        <h4>Hulu Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-oth-5">
+                <img src="posters/modok.jpg" alt="Marvel's M.O.D.O.K.">
+                <label for="other-oth-5">Marvel's M.O.D.O.K. (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-6">
+                <img src="posters/hitmonkey-s1.jpg" alt="Hit-Monkey - Season 1">
+                <label for="other-oth-6">Hit-Monkey - Season 1 (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-7">
+                <img src="posters/hitmonkey-s2.jpg" alt="Hit-Monkey - Season 2">
+                <label for="other-oth-7">Hit-Monkey - Season 2 (2024)</label>
+            </li>
+        </ul>
+
+       <h4>Other</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="other-oth-8">
+                <img src="posters/howardtheduck.jpg" alt="Howard the Duck">
+                <label for="other-oth-8">Howard the Duck (1986)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-9">
+                <img src="posters/nickfury1998.jpg" alt="Nick Fury: Agent of S.H.I.E.L.D.">
+                <label for="other-oth-9">Nick Fury: Agent of S.H.I.E.L.D. (1998)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-10">
+                <img src="posters/daredevil2003.jpg" alt="Daredevil">
+                <label for="other-oth-10">Daredevil (2003)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-11">
+                <img src="posters/hulk2003.jpg" alt="Hulk">
+                <label for="other-oth-11">Hulk (2003)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-12">
+                <img src="posters/elektra.jpg" alt="Elektra">
+                <label for="other-oth-12">Elektra (2005)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="other-oth-13">
+                <img src="posters/manthing.jpg" alt="Man-Thing">
+                <label for="other-oth-13">Man-Thing (2005)</label>
+            </li>
+        </ul>
+    </details>
+
+        </details>
+
+        <!-- 7. BEHIND THE SCENES & EXTRAS -->
+        <details>
+    <summary>Behind the Scenes & Extras</summary>
+    
+    <!-- Assembled -->
+    <details class="sub-section">
+        <summary class="sub-summary">Assembled</summary>
+        
+        <h4>Specials</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="bts-asm-1">
+                <img src="posters/assembled-wandavision.jpg" alt="The Making of WandaVision">
+                <label for="bts-asm-1">The Making of WandaVision (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-2">
+                <img src="posters/assembled-falconwintersoldier.jpg" alt="The Making of The Falcon and the Winter Soldier">
+                <label for="bts-asm-2">The Making of The Falcon and the Winter Soldier (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-3">
+                <img src="posters/assembled-loki-s1.jpg" alt="The Making of Loki">
+                <label for="bts-asm-3">The Making of Loki (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-4">
+                <img src="posters/assembled-blackwidow.jpg" alt="The Making of Black Widow">
+                <label for="bts-asm-4">The Making of Black Widow (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-5">
+                <img src="posters/assembled-whatif-s1.jpg" alt="The Making of What If...?">
+                <label for="bts-asm-5">The Making of What If...?(2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-6">
+                <img src="posters/assembled-shangchi.jpg" alt="The Making of Shang-Chi">
+                <label for="bts-asm-6">The Making of Shang-Chi and the Legend of the Ten Rings (2021)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-7">
+                <img src="posters/assembled-hawkeye.jpg" alt="The Making of Hawkeye">
+                <label for="bts-asm-7">The Making of Hawkeye (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-8">
+                <img src="posters/assembled-eternals.jpg" alt="The Making of Eternals">
+                <label for="bts-asm-8">The Making of Eternals (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-9">
+                <img src="posters/assembled-moonknight.jpg" alt="The Making of Moon Knight">
+                <label for="bts-asm-9">The Making of Moon Knight (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-10">
+                <img src="posters/assembled-doctorstrange2.jpg" alt="The Making of Doctor Strange 2">
+                <label for="bts-asm-10">The Making of Doctor Strange in the Multiverse of Madness (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-11">
+                <img src="posters/assembled-msmarvel.jpg" alt="The Making of Ms. Marvel">
+                <label for="bts-asm-11">The Making of Ms. Marvel (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-12">
+                <img src="posters/assembled-thor4.jpg" alt="The Making of Thor: Love and Thunder">
+                <label for="bts-asm-12">The Making of Thor: Love and Thunder (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-13">
+                <img src="posters/assembled-shehulk.jpg" alt="The Making of She-Hulk">
+                <label for="bts-asm-13">The Making of She-Hulk: Attorney at Law (2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-14">
+                <img src="posters/assembled-wakandaforever.jpg" alt="The Making of Black Panther: Wakanda Forever">
+                <label for="bts-asm-14">The Making of  Black Panther: Wakanda Forever (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-15">
+                <img src="posters/assembled-quantumania.jpg" alt="The Making of Ant-Man and the Wasp: Quantumania">
+                <label for="bts-asm-15">The Making of Ant-Man and the Wasp: Quantumania (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-16">
+                <img src="posters/assembled-gotg3.jpg" alt="The Making of Guardians of the Galaxy Vol. 3">
+                <label for="bts-asm-16">The Making of Guardians of the Galaxy Vol. 3 (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-17">
+                <img src="posters/assembled-secretinvasion.jpg" alt="The Making of Secret Invasion">
+                <label for="bts-asm-17">The Making of Secret Invasion (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-18">
+                <img src="posters/assembled-loki-s2.jpg" alt="The Making of Loki Season 2">
+                <label for="bts-asm-18">The Making of Loki Season 2 (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-19">
+                <img src="posters/assembled-echo.jpg" alt="The Making of Echo">
+                <label for="bts-asm-19">The Making of Echo (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-20">
+                <img src="posters/assembled-themarvels.jpg" alt="The Making of The Marvels">
+                <label for="bts-asm-20">The Making of The Marvels (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-21">
+                <img src="posters/assembled-xmen97.jpg" alt="The Making of X-Men '97">
+                <label for="bts-asm-21">The Making of X-Men '97 (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-22">
+                <img src="posters/assembled-deadpoolwolverine.jpg" alt="The Making of Deadpool & Wolverine">
+                <label for="bts-asm-22">The Making of Deadpool & Wolverine (2024)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-asm-23">
+                <img src="posters/assembled-agatha.jpg" alt="The Making of Agatha All Along">
+                <label for="bts-asm-23">The Making of Agatha All Along (2024)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Series -->
+    <details class="sub-section">
+        <summary class="sub-summary">Series</summary>
+        
+        <h4>Series</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="bts-ser-1">
+                <img src="posters/legends-s1.jpg" alt="Legends - Season 1">
+                <label for="bts-ser-1">Legends - Season 1 (2021-2022)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-ser-2">
+                <img src="posters/legends-s2.jpg" alt="Legends - Season 2">
+                <label for="bts-ser-2">Legends - Season 2 (2023)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-ser-3">
+                <img src="posters/mpower.jpg" alt="MPower">
+                <label for="bts-ser-3">MPower (2023)</label>
+            </li>
+        </ul>
+    </details>
+
+    <!-- Specials & Podcasts -->
+    <details class="sub-section">
+        <summary class="sub-summary">Specials & Podcasts</summary>
+        
+        <h4>Specials</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="bts-spec-1">
+                <img src="posters/voicesrising.jpg" alt="Voices Rising: The Music of Wakanda Forever">
+                <label for="bts-spec-1">Voices Rising: The Music of Wakanda Forever (2023)</label>
+            </li>
+        </ul>
+
+        <h4>Podcasts</h4>
+        <ul class="item-list">
+            <li class="item">
+                <input type="checkbox" id="bts-pod-1">
+                <img src="posters/daredevilpodcast.jpg" alt="Daredevil: Born Again Official Podcast">
+                <label for="bts-pod-1">Daredevil: Born Again Official Podcast (2026)</label>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="bts-pod-2">
+                <img src="posters/countdowntodoomsday.jpg" alt="Countdown to Avengers: Doomsday">
+                <label for="bts-pod-2">Countdown to Avengers: Doomsday (2026)</label>
+            </li>
+        </ul>
+    </details>
+        </details>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            checkboxes.forEach(checkbox => {
+                const isChecked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = isChecked;
+
+                checkbox.addEventListener('change', (e) => {
+                    localStorage.setItem(e.target.id, e.target.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
