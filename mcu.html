@@ -1665,6 +1665,16 @@
                     localStorage.setItem(e.target.id, e.target.checked);
                 });
             });
+            
+            document.querySelectorAll('details').forEach(parentDetails => {
+                parentDetails.addEventListener('toggle', () => {
+                    if (!parentDetails.open) {
+                        parentDetails.querySelectorAll('details').forEach(childDetails => {
+                            childDetails.removeAttribute('open');
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
