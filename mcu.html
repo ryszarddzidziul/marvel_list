@@ -34,8 +34,12 @@
             background-repeat: no-repeat;
             color: var(--text-light);
             font-family: 'MarvelFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: auto !important;
+            min-height: 100vh;
+            overflow-x: hidden;
             margin: 0;
             padding: 20px;
+            padding-bottom: 50px;
             cursor: url('inne/cursorspiderman2.png'), auto;
         }
 
@@ -219,6 +223,17 @@
             opacity: 0.8;
             margin-left: auto;
             padding-right: 15px;
+        }
+
+        html {
+        height: auto !important;
+        min-height: 100%;
+        overflow-x: hidden;
+        cursor: url('inne/cursorspiderman2.png'), auto !important;
+        }
+
+        *, *::before, *::after {
+          cursor: url('inne/cursorspiderman2.png'), auto !important;
         }
 
     </style>
